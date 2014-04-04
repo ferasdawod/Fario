@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Framework="Microsoft.Xna.Framework">
+  <Asset Type="Framework:Rectangle[]">196 65 61 61 141 187 61 61</Asset>
+</XnaContent>

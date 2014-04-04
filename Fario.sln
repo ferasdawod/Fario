@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fario", "Fario\Fario\Fario.csproj", "{6FD44E73-F20E-411E-8169-4BD2EE331A83}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "FarioContent", "Fario\FarioContent\FarioContent.contentproj", "{ACD1CA40-8C08-48C0-9C2E-9B49872B9A50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level Editor", "Level Editor\Level Editor\Level Editor.csproj", "{0BE56722-547E-4623-AC26-93B6B4828958}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Level EditorContent", "Level Editor\Level EditorContent\Level EditorContent.contentproj", "{593FE61C-1D3D-4CBD-B0E7-CAC31DC60B99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Partical System", "Partical System\Partical System.csproj", "{3A46641F-41CE-49C7-83BF-F3339D053B09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tile Engine", "Tile Engine\Tile Engine.csproj", "{F9D76517-4489-4246-B59D-78DEE308F0E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FD44E73-F20E-411E-8169-4BD2EE331A83}.Debug|x86.ActiveCfg = Debug|x86
+		{6FD44E73-F20E-411E-8169-4BD2EE331A83}.Debug|x86.Build.0 = Debug|x86
+		{6FD44E73-F20E-411E-8169-4BD2EE331A83}.Release|x86.ActiveCfg = Release|x86
+		{6FD44E73-F20E-411E-8169-4BD2EE331A83}.Release|x86.Build.0 = Release|x86
+		{ACD1CA40-8C08-48C0-9C2E-9B49872B9A50}.Debug|x86.ActiveCfg = Debug|x86
+		{ACD1CA40-8C08-48C0-9C2E-9B49872B9A50}.Release|x86.ActiveCfg = Release|x86
+		{0BE56722-547E-4623-AC26-93B6B4828958}.Debug|x86.ActiveCfg = Debug|x86
+		{0BE56722-547E-4623-AC26-93B6B4828958}.Debug|x86.Build.0 = Debug|x86
+		{0BE56722-547E-4623-AC26-93B6B4828958}.Release|x86.ActiveCfg = Release|x86
+		{0BE56722-547E-4623-AC26-93B6B4828958}.Release|x86.Build.0 = Release|x86
+		{593FE61C-1D3D-4CBD-B0E7-CAC31DC60B99}.Debug|x86.ActiveCfg = Debug|x86
+		{593FE61C-1D3D-4CBD-B0E7-CAC31DC60B99}.Release|x86.ActiveCfg = Release|x86
+		{3A46641F-41CE-49C7-83BF-F3339D053B09}.Debug|x86.ActiveCfg = Debug|x86
+		{3A46641F-41CE-49C7-83BF-F3339D053B09}.Debug|x86.Build.0 = Debug|x86
+		{3A46641F-41CE-49C7-83BF-F3339D053B09}.Release|x86.ActiveCfg = Release|x86
+		{3A46641F-41CE-49C7-83BF-F3339D053B09}.Release|x86.Build.0 = Release|x86
+		{F9D76517-4489-4246-B59D-78DEE308F0E1}.Debug|x86.ActiveCfg = Debug|x86
+		{F9D76517-4489-4246-B59D-78DEE308F0E1}.Debug|x86.Build.0 = Debug|x86
+		{F9D76517-4489-4246-B59D-78DEE308F0E1}.Release|x86.ActiveCfg = Release|x86
+		{F9D76517-4489-4246-B59D-78DEE308F0E1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
