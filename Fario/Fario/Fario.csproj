@@ -13,7 +13,7 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
-    <XnaProfile>Reach</XnaProfile>
+    <XnaProfile>HiDef</XnaProfile>
     <XnaCrossPlatformGroupID>040c6f0c-43ea-4318-b0ce-09396cce2361</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
@@ -45,8 +45,9 @@
     <NoStdLib>true</NoStdLib>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
-    <XnaCompressContent>false</XnaCompressContent>
+    <XnaCompressContent>True</XnaCompressContent>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DocumentationFile>bin\x86\Debug\Fario.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -59,6 +60,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>true</XnaCompressContent>
+    <DocumentationFile>bin\x86\Release\Fario.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="irrKlang.NET4, Version=1.0.4534.25937, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=x86">
@@ -163,7 +165,6 @@
     <None Include="C3.XNA.Primitives2D.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>

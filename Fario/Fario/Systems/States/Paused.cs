@@ -250,15 +250,15 @@ namespace IMPORT_PLATFORM
                 {
                     string line = "- " + data.Name;
                     string wholeLine;
-                    line = line.PadRight(35 - line.Length, ' ');
+                    line = line.PadRight(40 - line.Length, '.');
                     wholeLine = line;
 
                     line = data.Score.ToString();
-                    line = line.PadRight(30 - line.Length, ' ');
+                    line = line.PadRight(32 - line.Length, '.');
                     wholeLine += line;
 
                     line = data.LevelName;
-                    line = line.PadRight(20 - line.Length, ' ');
+                    line = line.PadRight(25 - line.Length, '.');
                     wholeLine += line;
 
                     line = data.TotalTime.Minutes.ToString() + ":" + data.TotalTime.Seconds.ToString();

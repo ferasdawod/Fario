@@ -36,6 +36,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             this.listTiles.Location = new System.Drawing.Point(3, 16);
             this.listTiles.MultiSelect = false;
             this.listTiles.Name = "listTiles";
-            this.listTiles.Size = new System.Drawing.Size(550, 276);
+            this.listTiles.Size = new System.Drawing.Size(450, 276);
             this.listTiles.TabIndex = 3;
             this.listTiles.TileSize = new System.Drawing.Size(10, 10);
             this.listTiles.UseCompatibleStateImageBehavior = false;
@@ -72,7 +73,7 @@
             this.listTemp.Location = new System.Drawing.Point(3, 16);
             this.listTemp.MultiSelect = false;
             this.listTemp.Name = "listTemp";
-            this.listTemp.Size = new System.Drawing.Size(550, 85);
+            this.listTemp.Size = new System.Drawing.Size(686, 85);
             this.listTemp.TabIndex = 5;
             this.listTemp.TileSize = new System.Drawing.Size(10, 10);
             this.listTemp.UseCompatibleStateImageBehavior = false;
@@ -85,7 +86,7 @@
             this.groupBox1.Controls.Add(this.listTemp);
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(556, 104);
+            this.groupBox1.Size = new System.Drawing.Size(692, 104);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Recent Tiles";
@@ -98,7 +99,7 @@
             this.groupBox2.Controls.Add(this.listTiles);
             this.groupBox2.Location = new System.Drawing.Point(4, 112);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(556, 295);
+            this.groupBox2.Size = new System.Drawing.Size(456, 295);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "All Tiles";
@@ -118,7 +119,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(482, 410);
+            this.button1.Location = new System.Drawing.Point(618, 410);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(78, 20);
             this.button1.TabIndex = 9;
@@ -127,11 +128,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Location = new System.Drawing.Point(466, 114);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(230, 293);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Collectibales";
+            // 
             // TilesViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 432);
+            this.ClientSize = new System.Drawing.Size(700, 432);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox2);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

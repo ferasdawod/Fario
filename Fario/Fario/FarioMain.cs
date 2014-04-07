@@ -66,6 +66,7 @@ namespace IMPORT_PLATFORM
 
     public class FarioMain : Microsoft.Xna.Framework.Game
     {
+
         #region Declerationgs
 
         //Graphics And fonts declerations
