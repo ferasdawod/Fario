@@ -36,9 +36,19 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listCoins = new System.Windows.Forms.ListView();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.listTraps = new System.Windows.Forms.ListView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listEnemies = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgListTiles
@@ -57,7 +67,7 @@
             this.listTiles.Location = new System.Drawing.Point(3, 16);
             this.listTiles.MultiSelect = false;
             this.listTiles.Name = "listTiles";
-            this.listTiles.Size = new System.Drawing.Size(450, 276);
+            this.listTiles.Size = new System.Drawing.Size(460, 276);
             this.listTiles.TabIndex = 3;
             this.listTiles.TileSize = new System.Drawing.Size(10, 10);
             this.listTiles.UseCompatibleStateImageBehavior = false;
@@ -99,7 +109,7 @@
             this.groupBox2.Controls.Add(this.listTiles);
             this.groupBox2.Location = new System.Drawing.Point(4, 112);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(456, 295);
+            this.groupBox2.Size = new System.Drawing.Size(466, 295);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "All Tiles";
@@ -128,33 +138,125 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // groupBox3
+            // listCoins
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Location = new System.Drawing.Point(466, 114);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(230, 293);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Collectibales";
+            this.listCoins.BackColor = System.Drawing.SystemColors.Control;
+            this.listCoins.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listCoins.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listCoins.HideSelection = false;
+            this.listCoins.LargeImageList = this.imgListTiles;
+            this.listCoins.Location = new System.Drawing.Point(3, 3);
+            this.listCoins.Margin = new System.Windows.Forms.Padding(0);
+            this.listCoins.MultiSelect = false;
+            this.listCoins.Name = "listCoins";
+            this.listCoins.Size = new System.Drawing.Size(206, 257);
+            this.listCoins.TabIndex = 6;
+            this.listCoins.TileSize = new System.Drawing.Size(10, 10);
+            this.listCoins.UseCompatibleStateImageBehavior = false;
+            this.listCoins.SelectedIndexChanged += new System.EventHandler(this.listCoins_SelectedIndexChanged);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(476, 118);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(220, 289);
+            this.tabControl1.TabIndex = 11;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.listCoins);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(212, 263);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Coins";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.listTraps);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(211, 267);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Traps";
+            // 
+            // listTraps
+            // 
+            this.listTraps.BackColor = System.Drawing.SystemColors.Control;
+            this.listTraps.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listTraps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listTraps.HideSelection = false;
+            this.listTraps.LargeImageList = this.imgListTiles;
+            this.listTraps.Location = new System.Drawing.Point(0, 0);
+            this.listTraps.Margin = new System.Windows.Forms.Padding(0);
+            this.listTraps.MultiSelect = false;
+            this.listTraps.Name = "listTraps";
+            this.listTraps.Size = new System.Drawing.Size(211, 267);
+            this.listTraps.TabIndex = 8;
+            this.listTraps.TileSize = new System.Drawing.Size(10, 10);
+            this.listTraps.UseCompatibleStateImageBehavior = false;
+            this.listTraps.SelectedIndexChanged += new System.EventHandler(this.listTraps_SelectedIndexChanged);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.listEnemies);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(211, 267);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Enemies";
+            // 
+            // listEnemies
+            // 
+            this.listEnemies.BackColor = System.Drawing.SystemColors.Control;
+            this.listEnemies.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listEnemies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listEnemies.HideSelection = false;
+            this.listEnemies.LargeImageList = this.imgListTiles;
+            this.listEnemies.Location = new System.Drawing.Point(3, 3);
+            this.listEnemies.Margin = new System.Windows.Forms.Padding(0);
+            this.listEnemies.MultiSelect = false;
+            this.listEnemies.Name = "listEnemies";
+            this.listEnemies.Size = new System.Drawing.Size(205, 261);
+            this.listEnemies.TabIndex = 7;
+            this.listEnemies.TileSize = new System.Drawing.Size(10, 10);
+            this.listEnemies.UseCompatibleStateImageBehavior = false;
+            this.listEnemies.SelectedIndexChanged += new System.EventHandler(this.listEnemies_SelectedIndexChanged);
             // 
             // TilesViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 432);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "TilesViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TilesViewer";
+            this.Text = "TileSet Viewer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TilesViewer_FormClosing);
             this.Load += new System.EventHandler(this.TilesViewer_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +271,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListView listCoins;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ListView listEnemies;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ListView listTraps;
     }
 }

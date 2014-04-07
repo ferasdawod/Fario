@@ -119,5 +119,52 @@ namespace Tile_Engine
 
             return indexToName[index];
         }
+
+        public List<string> GetCollectibalesNames()
+        {
+            List<string> namesList = new List<string>();
+
+            foreach (KeyValuePair<string, int> pair in nameToIndex)
+            {
+                if (pair.Key.StartsWith("C"))
+                {
+                    namesList.Add(pair.Key);
+                }
+            }
+
+            return namesList;
+        }
+
+        public List<string> GetEnemiesNames()
+        {
+            List<string> names = new List<string>();
+
+            foreach (KeyValuePair<string, int> pair in nameToIndex)
+            {
+                if (pair.Key.StartsWith("E"))
+                {
+                    names.Add(pair.Key);
+                }
+            }
+
+            return names;
+        }
+
+        public List<string> GetTrapsNames()
+        {
+            List<string> names = new List<string>();
+
+            foreach (KeyValuePair<string, int> pair in nameToIndex)
+            {
+                if (pair.Key.StartsWith("H"))
+                {
+                    names.Add(pair.Key);
+                }
+            }
+
+            return names;
+        }
+
+
     }
 }

@@ -34,7 +34,7 @@ namespace Tile_Engine
         public static SpriteFont spriteFont;
         static private Texture2D tileSheet;
 
-        private static TilesetData tileData;
+        public static TilesetData TileSetInfo { get; private set; }
 
         private static List<string> specialTiles = new List<string>();
 
@@ -94,7 +94,7 @@ namespace Tile_Engine
                     }
                 }
             }
-            tileData = new TilesetData();
+            TileSetInfo = new TilesetData();
         }
 
         #region Tiles Helper Methods
@@ -254,22 +254,22 @@ namespace Tile_Engine
 
         public static int GetTileIndex(string tileName)
         {
-            return tileData.GetTileIndex(tileName);
+            return TileSetInfo.GetTileIndex(tileName);
         }
 
         public static string GetTileName(int index)
         {
-            return tileData.GetTileName(index);
+            return TileSetInfo.GetTileName(index);
         }
 
         public static bool IsTileSpecial(int index)
         {
-            return tileData.IsTileSpecial(index);
+            return TileSetInfo.IsTileSpecial(index);
         }
 
         public static bool IsTileSpecial(string name)
         {
-            return tileData.IsTileSpecial(name);
+            return TileSetInfo.IsTileSpecial(name);
         }
 
         #endregion

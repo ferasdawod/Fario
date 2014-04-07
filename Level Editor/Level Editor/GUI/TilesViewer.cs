@@ -64,6 +64,39 @@ namespace Level_Editor
         private void TilesViewer_Load(object sender, EventArgs e)
         {
             LoadImageList();
+            FillOtherLists();
+        }
+
+        private void FillOtherLists()
+        {
+            List<string> names = TileMap.TileSetInfo.GetCollectibalesNames();
+            AddListItems(names, ref listCoins);
+
+            names = TileMap.TileSetInfo.GetTrapsNames();
+            AddListItems(names, ref listTraps);
+
+            names = TileMap.TileSetInfo.GetEnemiesNames();
+            AddListItems(names, ref listEnemies);
+        }
+
+        private void AddListItems(List<string> names, ref ListView targetList)
+        {
+            int index = -1;
+            ListViewItem item;
+
+            foreach (string name in names)
+            {
+                try
+                {
+                    index = TileMap.GetTileIndex(name);
+                    item = (ListViewItem)listTiles.Items[index].Clone();
+                    targetList.Items.Add(item);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error In AddListItems()\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void listTiles_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,6 +141,39 @@ namespace Level_Editor
         private void button1_Click(object sender, EventArgs e)
         {
             listTemp.Clear();
+        }
+
+        private void listCoins_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listCoins.SelectedIndices.Count > 0)
+            {
+                foreach (ListViewItem item in listCoins.SelectedItems)
+                {
+                    Game1.DrawTile = int.Parse(item.Text);
+                }
+            }
+        }
+
+        private void listTraps_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listTraps.SelectedIndices.Count > 0)
+            {
+                foreach (ListViewItem item in listTraps.SelectedItems)
+                {
+                    Game1.DrawTile = int.Parse(item.Text);
+                }
+            }
+        }
+
+        private void listEnemies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listEnemies.SelectedIndices.Count > 0)
+            {
+                foreach (ListViewItem item in listEnemies.SelectedItems)
+                {
+                    Game1.DrawTile = int.Parse(item.Text);
+                }
+            }
         }        
     }
 }
