@@ -157,7 +157,7 @@ namespace IMPORT_PLATFORM
                 {
                     MusicManager.Instance.StartLoop();
                     firstRun = false;
-                    StartNewGame(mainGame.StartingData);
+                    StartNewGame();
                 }
                 else
                 {
@@ -168,8 +168,8 @@ namespace IMPORT_PLATFORM
             }
             else
             {
-                    MusicManager.Instance.StartLoop();
-                
+                MusicManager.Instance.StartLoop();
+
                 StartNewGame();
             }
         }

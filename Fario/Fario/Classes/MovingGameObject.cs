@@ -17,7 +17,7 @@ namespace IMPORT_PLATFORM
         protected float accelerationX;
         protected float deaccelerationX;
 
-        protected Vector2 Gravity = new Vector2(0,925.0f);
+        protected Vector2 Gravity = new Vector2(0, 925.0f);
 
         protected bool useGravity;
         protected bool hasCollisions;
@@ -89,7 +89,7 @@ namespace IMPORT_PLATFORM
             this.beingMoved = false;
         }
 
-        #endregion        
+        #endregion
 
         #region Updating and Handleing Collisions
 
@@ -119,7 +119,7 @@ namespace IMPORT_PLATFORM
                 worldLocation.X += moveAmount.X;
                 worldLocation.Y += moveAmount.Y;
             }
-            
+
             HandleCollisions();
 
             if (limitSpeed)
@@ -130,7 +130,7 @@ namespace IMPORT_PLATFORM
                 if (speed.Y < -maxSpeed.Y) speed.Y = -maxSpeed.Y;
             }
 
-            if ((speed.Y > MaxSpeed.Y / 50))
+            if (onGround && (speed.Y > 100))
             {
                 onGround = false;
                 jumping = true;
@@ -283,7 +283,7 @@ namespace IMPORT_PLATFORM
             {
                 if (moveAmount.Y > 0)
                 {
-                    onGround = true; 
+                    onGround = true;
                 }
                 moveAmount.Y = 0;
                 speed.Y = 0;

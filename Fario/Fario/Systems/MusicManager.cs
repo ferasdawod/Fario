@@ -42,6 +42,7 @@ namespace IMPORT_PLATFORM
         ISound backgroundSound;
 
         Dictionary<SFXType, string> Effects;
+        ISound fallSound;
         ISound effectSound;
 
         ISoundEngine soundEngine;
@@ -107,8 +108,27 @@ namespace IMPORT_PLATFORM
                 {
                     if (Effects.ContainsKey(effectType))
                     {
-                        effectSound = soundEngine.Play2D(Effects[effectType]);
-                        effectSound.Volume = effectsVolume;
+                        if (effectType == SFXType.Fall)
+                        {
+                            if (fallSound == null)
+                            {
+                                fallSound = soundEngine.Play2D(Effects[effectType]);
+                                fallSound.Volume = effectsVolume;
+                            }
+                            else
+                            {
+                                if (fallSound.Finished)
+                                {
+                                    fallSound = soundEngine.Play2D(Effects[effectType]);
+                                    fallSound.Volume = effectsVolume;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            effectSound = soundEngine.Play2D(Effects[effectType]);
+                            effectSound.Volume = effectsVolume;
+                        }
                     }
                 }
             }

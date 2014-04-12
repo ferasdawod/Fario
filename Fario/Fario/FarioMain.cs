@@ -22,8 +22,14 @@ using Application = System.Windows.Forms.Application;
 
 namespace IMPORT_PLATFORM
 {
+    /// <summary>
+    /// Enum For The Active Game State
+    /// </summary>
     public enum GameState { NewGame = 0, InGame = 1, Paused = 2, GameOver = 3, FinishedGame = 4 }
 
+    /// <summary>
+    /// Save Game Data Structure For Loading And Starting The Game
+    /// </summary>
     public struct SaveGameData
     {
         public string LevelName;
@@ -36,6 +42,9 @@ namespace IMPORT_PLATFORM
         public TimeSpan ElapesedTime;
     }
 
+    /// <summary>
+    /// Configuration Data Structure For Loading And Starting The Game
+    /// </summary>
     public struct ConfigurationData
     {
         public int ResWidth;
@@ -46,6 +55,9 @@ namespace IMPORT_PLATFORM
         public string StartUpPath;
     }
 
+    /// <summary>
+    /// Sound Configuration Data For The Game
+    /// </summary>
     public struct SoundConfiguration
     {
         public float MasterVolume;
@@ -56,6 +68,9 @@ namespace IMPORT_PLATFORM
         public bool useEffects;
     }
 
+    /// <summary>
+    /// High Score Data For The Game
+    /// </summary>
     public struct HighScoreData
     {
         public string Name;
@@ -64,6 +79,9 @@ namespace IMPORT_PLATFORM
         public TimeSpan TotalTime;
     };
 
+    /// <summary>
+    /// The Main Game Class
+    /// </summary>
     public class FarioMain : Microsoft.Xna.Framework.Game
     {
 
@@ -73,6 +91,10 @@ namespace IMPORT_PLATFORM
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont stateFont;
+
+        /// <summary>
+        /// The Font Used To Draw Large Text
+        /// </summary>
         public SpriteFont LargeStateFont { get; set; }
         SpriteFont debugFont;
         SpriteFont particalFont;
@@ -106,6 +128,8 @@ namespace IMPORT_PLATFORM
 
         CloudManager cloudManager;
 
+        #region Background Textures
+
         //the background image
         Texture2D grassBackground;
         Texture2D pinkBackground;
@@ -115,25 +139,60 @@ namespace IMPORT_PLATFORM
         Texture2D brownBackground;
         Dictionary<MapType, Texture2D> backgrounds;
 
-        //Logos For The Paused Screen
+        #endregion
+
+        #region Game Logos
+        /// <summary>
+        /// The Main Game Logo..Large Version
+        /// </summary>
         public Texture2D LargeGameLogo { get; private set; }
+
+        /// <summary>
+        /// The Main Game Logo..Small Version
+        /// </summary>
         public Texture2D SmallGameLogo { get; private set; }
 
-        //Logos For The GameOver screen
+        /// <summary>
+        /// The Game Over Logo..Large Version
+        /// </summary>
         public Texture2D GameOverImageLarge { get; private set; }
+
+        /// <summary>
+        /// Game Over Logo..Small Version
+        /// </summary>
         public Texture2D GameOverImageSmall { get; private set; }
 
-        //Logos For The Game Finished Screen
+        /// <summary>
+        /// Game Finished Logo..Large Version
+        /// </summary>
         public Texture2D GameFinishedLarge { get; private set; }
+
+        /// <summary>
+        /// Game Finished Logo..Small Version
+        /// </summary>
         public Texture2D GameFinishedSmall { get; private set; }
 
-        //a timer used to check the elapesed time
+        #endregion
+
+        /// <summary>
+        /// Timer Used To Count Game Time Since Start Without Adding The Loaded Time From A Saved Game
+        /// </summary>
         public Stopwatch Timer { get; set; }
+
+        /// <summary>
+        /// Time To Be Added To The Timer When Calculating Total Game Time
+        /// </summary>
         public TimeSpan StartingTime { get; set; }
 
-        //starting a new game map name
-        private const string newGameMap = "1";
 
+        /// <summary>
+        /// New Game Map Name
+        /// </summary>
+        private const string newGameMap = "1";
+        
+        /// <summary>
+        /// Contains Needed Defenitions For Loading And Starting A Game
+        /// </summary>
         public System.Collections.Generic.List<HighScoreData> HighScoreData { get; private set; }
 
         #endregion
@@ -232,6 +291,11 @@ namespace IMPORT_PLATFORM
 
         #region Iniyialization
 
+        /// <summary>
+        /// The Main Constructor For The Game
+        /// </summary>
+        /// <param name="saveData">The Save Game Data Needed To Start The Game</param>
+        /// <param name="configData">The Game Configuration</param>
         public FarioMain(SaveGameData saveData, ConfigurationData configData)
         {
             graphics = new GraphicsDeviceManager(this);
@@ -241,9 +305,13 @@ namespace IMPORT_PLATFORM
             this.configData = configData;
         }
 
+        /// <summary>
+        /// Initializing Of The Game
+        /// </summary>
         protected override void Initialize()
         {
             graphics.GraphicsProfile = GraphicsProfile.HiDef;
+            
 
             Window.Title = "Fario";
             Window.AllowUserResizing = false;
@@ -251,7 +319,7 @@ namespace IMPORT_PLATFORM
             helper = new NumbersHelper();
             rnd = new Random();
             instance = this;
-
+            
             graphics.PreferredBackBufferWidth = configData.ResWidth;
             graphics.PreferredBackBufferHeight = configData.ResHeight;
             graphics.IsFullScreen = configData.isFullScreen;
@@ -271,6 +339,9 @@ namespace IMPORT_PLATFORM
             base.Initialize();
         }
 
+        /// <summary>
+        /// Loading of The Game Resources Happens Here
+        /// </summary>
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -354,6 +425,9 @@ namespace IMPORT_PLATFORM
             SetState(GameState.NewGame);
         }
 
+        /// <summary>
+        /// Unloading Of The Game Resources Happens Here
+        /// </summary>
         protected override void UnloadContent()
         {
             Content.Dispose();
@@ -363,6 +437,10 @@ namespace IMPORT_PLATFORM
 
         #region Update And Draw
 
+        /// <summary>
+        /// Used For Updating The Game
+        /// </summary>
+        /// <param name="gameTime">Provides Timing Information</param>
         protected override void Update(GameTime gameTime)
         {
 
@@ -404,6 +482,10 @@ namespace IMPORT_PLATFORM
 
         }
 
+        /// <summary>
+        /// Drawing The Game
+        /// </summary>
+        /// <param name="gameTime"></param>
         protected override void Draw(GameTime gameTime)
         {
 #if DEBUG
@@ -476,12 +558,18 @@ namespace IMPORT_PLATFORM
             }
         }
 
+        /// <summary>
+        /// Used To Set The Active State Of The Game
+        /// </summary>
+        /// <param name="state">The State To Be Set</param>
         public void SetState(GameState state)
         {
             this.activeState = state;
         }
 
-
+        /// <summary>
+        /// Restart The Current Level
+        /// </summary>
         public void RestartLevel()
         {
             player.Speed = Vector2.Zero;
@@ -490,6 +578,9 @@ namespace IMPORT_PLATFORM
             inGame.InGameState = InGameState.Playing;
         }
         
+        /// <summary>
+        /// Loads The Last Saved Game If It Exists
+        /// </summary>
         public void LoadLastSave()
         {
             if (LastSave.LevelName != "-1")
@@ -518,6 +609,9 @@ namespace IMPORT_PLATFORM
             }
         }
 
+        /// <summary>
+        /// Saves The Current High Score To A File
+        /// </summary>
         public void SaveHighScore()
         {
             string folderPath = Application.StartupPath + "/Content/Settings";

@@ -223,6 +223,11 @@ namespace Level_Editor
         {
             GraphicsDevice.Clear(Color.White);
 
+            if (spriteBatch == null || spriteBatch.IsDisposed)
+                spriteBatch = new SpriteBatch(GraphicsDevice);
+            if (TileMap.TileSheet.IsDisposed)
+                TileMap.TileSheet = Content.Load<Texture2D>(@"Textures/Tileset");
+
             spriteBatch.Begin();
 
             TileMap.Draw(spriteBatch);
@@ -230,6 +235,11 @@ namespace Level_Editor
             {
                 tile.Draw(spriteBatch);
             }
+
+            if (spriteBatch == null || spriteBatch.IsDisposed)
+                spriteBatch = new SpriteBatch(GraphicsDevice);
+            if (TileMap.TileSheet.IsDisposed)
+                TileMap.TileSheet = Content.Load<Texture2D>(@"Textures/Tileset");
 
             spriteBatch.End();
 

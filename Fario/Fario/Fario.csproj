@@ -152,6 +152,7 @@
     <Compile Include="Systems\States\Paused.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\tot3.png" />
     <None Include="Resources\tot2.png" />
     <None Include="Resources\tot1.png" />

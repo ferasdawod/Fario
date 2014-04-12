@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IMPORT_PLATFORM.GameObject" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAIEUAIABtAgAAKAAABVADAgEAAAAAAAIAAAADA=</HashCode>
+      <FileName>Classes\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.MovingGameObject" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAIgAAIJAgQAAAQEAIABAAAMAUBIAAIkAgASAAA=</HashCode>
+      <FileName>Classes\MovingGameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Collectibale" Collapsed="true">
+    <Position X="15.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAACgAAAAAAAAAAAAABAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Classes\Collectibales.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Player" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIwIgAgIAsCABwgAQAAIgQAAgALADgCMQAIAiBiAIJA=</HashCode>
+      <FileName>Classes\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Spike" Collapsed="true">
+    <Position X="17.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAACgAAAAAAAAAAAAAAAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>Classes\Spike.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.StaticGameObject" Collapsed="true">
+    <Position X="16.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\StaticGameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.PatrolingEnemy" Collapsed="true">
+    <Position X="11.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAIAAAACgAAAAAAgACAAIIBAgAIAAIASAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\PatrolingEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Barnacle" Collapsed="true">
+    <Position X="22.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Barnacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Ghost" Collapsed="true">
+    <Position X="5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Ghost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.HalfSpinner">
+    <Position X="11.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\HalfSpinner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.LadyBug" Collapsed="true">
+    <Position X="18.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\LadyBug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Mouse" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Mouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Slime" Collapsed="true">
+    <Position X="7.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Slime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Snail" Collapsed="true">
+    <Position X="14" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Snail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Snake" Collapsed="true">
+    <Position X="20.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Snake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Spider" Collapsed="true">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Spider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Spinner" Collapsed="true">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Spinner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMPORT_PLATFORM.Worm" Collapsed="true">
+    <Position X="16.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\Worm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

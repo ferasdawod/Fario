@@ -233,19 +233,22 @@ namespace IMPORT_PLATFORM
  
         private void UpdateCollectibales(GameTime gameTime)
         {
-            for (int i = 0; i < collectibales.Count; i++)
+            if (!player.Dead)
             {
-                if (Camera.ObjectIsVisible(collectibales[i].WorldRectangle))
+                for (int i = 0; i < collectibales.Count; i++)
                 {
-                    collectibales[i].Update(gameTime);
-                    if (collectibales[i].CollisionRectangle.Intersects(player.CollisionRectangle))
+                    if (Camera.ObjectIsVisible(collectibales[i].WorldRectangle))
                     {
-                        player.Score += collectibales[i].ScoreValue;
-                        particalEngine.GenerateEffect(collectibales[i].WorldCenter, Color.White);
-                        collectibales.RemoveAt(i);
-                        i--;
-                        MusicManager.Instance.PlayEffect(SFXType.PickUp);
-                        break;
+                        collectibales[i].Update(gameTime);
+                        if (collectibales[i].CollisionRectangle.Intersects(player.CollisionRectangle))
+                        {
+                            player.Score += collectibales[i].ScoreValue;
+                            particalEngine.GenerateEffect(collectibales[i].WorldCenter, Color.White);
+                            collectibales.RemoveAt(i);
+                            i--;
+                            MusicManager.Instance.PlayEffect(SFXType.PickUp);
+                            break;
+                        }
                     }
                 }
             }
@@ -253,16 +256,19 @@ namespace IMPORT_PLATFORM
 
         private void UpdateTraps(GameTime gameTime)
         {
-            for (int i = 0; i < traps.Count; i++)
+            if (!player.Dead)
             {
-                if (Camera.ObjectIsVisible(traps[i].WorldRectangle))
+                for (int i = 0; i < traps.Count; i++)
                 {
-                    traps[i].Update(gameTime);
-                    if (traps[i].CollisionRectangle.Intersects(player.CollisionRectangle))
+                    if (Camera.ObjectIsVisible(traps[i].WorldRectangle))
                     {
-                        player.GetHurt(traps[i].ScoreValue);
-                        MusicManager.Instance.PlayEffect(SFXType.Hurt);
-                        break;
+                        traps[i].Update(gameTime);
+                        if (traps[i].CollisionRectangle.Intersects(player.CollisionRectangle))
+                        {
+                            player.GetHurt(traps[i].ScoreValue);
+                            MusicManager.Instance.PlayEffect(SFXType.Hurt);
+                            break;
+                        }
                     }
                 }
             }
@@ -270,16 +276,19 @@ namespace IMPORT_PLATFORM
 
         private void UpdateWaters(GameTime gameTime)
         {
-            for (int i = 0; i < waters.Count; i++)
+            if (!player.Dead)
             {
-                if (Camera.ObjectIsVisible(waters[i].WorldRectangle))
+                for (int i = 0; i < waters.Count; i++)
                 {
-                    waters[i].Update(gameTime);
-                    if (waters[i].CollisionRectangle.Intersects(player.CollisionRectangle))
+                    if (Camera.ObjectIsVisible(waters[i].WorldRectangle))
                     {
-                        player.LoseLife();
-                        MusicManager.Instance.PlayEffect(SFXType.Fall);
-                        break;
+                        waters[i].Update(gameTime);
+                        if (waters[i].CollisionRectangle.Intersects(player.CollisionRectangle))
+                        {
+                            player.LoseLife();
+                            MusicManager.Instance.PlayEffect(SFXType.Fall);
+                            break;
+                        }
                     }
                 }
             }

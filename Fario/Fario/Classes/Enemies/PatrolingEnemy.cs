@@ -12,12 +12,6 @@ namespace IMPORT_PLATFORM
     {
         #region Declerations
 
-        protected bool dead;
-        public bool Dead
-        {
-            get { return dead; }
-        }
-
         protected Texture2D texture;
         public Texture2D Texture
         {
@@ -51,6 +45,9 @@ namespace IMPORT_PLATFORM
         /// </summary>
         protected bool checkCollisions;
 
+        /// <summary>
+        /// The Direction Of Movment
+        /// </summary>
         protected int moveDirection = -1;
         
         #endregion        
@@ -62,6 +59,7 @@ namespace IMPORT_PLATFORM
             base.Update(gameTime);
             if (worldLocation.X == 0 || worldLocation.X == (Tile_Engine.Camera.WorldRectangle.Width - FrameWidth))
             {
+                speed.X = 0;
                 moveDirection *= -1;
             }
         }
