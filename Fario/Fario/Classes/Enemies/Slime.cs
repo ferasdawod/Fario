@@ -36,7 +36,7 @@ namespace IMPORT_PLATFORM
 
             this.drawDepth = 0.9f;
             this.enabled = true;
-            this.scoreValue = 100;
+            this.scoreValue = 10;
             this.PlayAnimation("Walk");
         }
 

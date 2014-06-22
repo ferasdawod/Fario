@@ -26,13 +26,17 @@ namespace IMPORT_PLATFORM
         #region Collectibales and traps declerations
 
         private List<Collectibale> collectibales = new List<Collectibale>();
-        private int collectibalsScore = 500;
+        private int gCoinScore = 15;
+        private int sCoinScore = 10;
+        private int bCoinScore = 5;
+        private int gemScore = 25;
+        private int starScore = 20;
 
         private List<Spike> traps = new List<Spike>();
-        private int trapScore = 250;
+        private int trapScore = 25;
 
         private List<Spike> waters = new List<Spike>();
-        private int waterScore = 1000;
+        private int waterScore = 50;
 
         #endregion
 
@@ -82,7 +86,7 @@ namespace IMPORT_PLATFORM
             particalTextures.Add(mainGame.Content.Load<Texture2D>(@"Particals\partical2"));
             particalTextures.Add(mainGame.Content.Load<Texture2D>(@"Particals\partical3"));
 
-            particalEngine = new ParticalEngine(particalTextures, 20, 1.0f, .8f);
+            particalEngine = new ParticalEngine(particalTextures, 15, .5f, .8f);
         }
 
         #endregion
@@ -141,35 +145,35 @@ namespace IMPORT_PLATFORM
         {
             if (code == "CStar")
             {
-                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, collectibalsScore, numHelper, CollectibaleType.Star));
+                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, starScore, numHelper, CollectibaleType.Star));
             }
             if (code == "CBCoin")
             {
-                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, collectibalsScore, numHelper, CollectibaleType.BronzCoin));
+                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, bCoinScore, numHelper, CollectibaleType.BronzCoin));
             }
             if (code == "CSCoin")
             {
-                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, collectibalsScore, numHelper, CollectibaleType.SilverCoin));
+                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, sCoinScore, numHelper, CollectibaleType.SilverCoin));
             }
             if (code == "CGCoin")
             {
-                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, collectibalsScore, numHelper, CollectibaleType.GoldCoin));
+                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, gCoinScore, numHelper, CollectibaleType.GoldCoin));
             }
             if (code == "CBGem")
             {
-                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, collectibalsScore, numHelper, CollectibaleType.Diamond));
+                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, gemScore, numHelper, CollectibaleType.Diamond));
             }
             if (code == "CRGem")
             {
-                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, collectibalsScore, numHelper, CollectibaleType.Diamond));
+                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, gemScore, numHelper, CollectibaleType.Diamond));
             }
             if (code == "CYGem")
             {
-                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, collectibalsScore, numHelper, CollectibaleType.Diamond));
+                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, gemScore, numHelper, CollectibaleType.Diamond));
             }
             if (code == "CGGem")
             {
-                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, collectibalsScore, numHelper, CollectibaleType.Diamond));
+                collectibales.Add(new Collectibale(TileMap.TileSheet, TileMap.GetTileIndex(code), x, y, gemScore, numHelper, CollectibaleType.Diamond));
             }
         }
 
@@ -203,14 +207,17 @@ namespace IMPORT_PLATFORM
 
         #region Update And Draw
 
-        public  void Update(GameTime gameTime)
+        public  void Update(GameTime gameTime, bool waitingForInput)
         {
-            UpdateCollectibales(gameTime);
-            UpdateTraps(gameTime);
-            UpdateWaters(gameTime);
+            if (!waitingForInput)
+            {
+                UpdateCollectibales(gameTime);
+                UpdateTraps(gameTime);
+                UpdateWaters(gameTime);
+                enemiesManager.Update(gameTime);
+            }
 
             particalEngine.Update(gameTime);
-            enemiesManager.Update(gameTime);
         }
 
         public  void Draw(SpriteBatch spriteBatch)

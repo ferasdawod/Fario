@@ -269,8 +269,14 @@ namespace Level_Editor
             if (viewer.IsDisposed)
             {
                 viewer = new TilesViewer();
+                viewer.Show(); 
+                viewer.BringToFront();
             }
-            viewer.Show();
+            else
+            {
+                viewer.Show();
+                viewer.BringToFront();
+            }
             game.shouldDraw = true;
             game.shouldUpdate = true;
         }

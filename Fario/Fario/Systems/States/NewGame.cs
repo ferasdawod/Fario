@@ -79,6 +79,11 @@ namespace IMPORT_PLATFORM
 
             if (screen == CurrentScreen.Logo)
             {
+                spriteBatch.DrawString(
+                    mainGame.LargeStateFont,
+                    "Welcome",
+                    Extensions.AllignThing(mainGame.LargeStateFont.MeasureString("Welcome"), TextLocation.TopMid, mainGame.Window.ClientBounds),
+                    Color.White);
                 Vector2 loc = Extensions.AllignThing(new Vector2(mainGame.LargeGameLogo.Width, mainGame.LargeGameLogo.Height), TextLocation.Center, mainGame.Window.ClientBounds);
                 spriteBatch.Draw(mainGame.LargeGameLogo, loc, Color.White);
             }
@@ -142,7 +147,9 @@ namespace IMPORT_PLATFORM
             tips.AppendLine("7) If You Lose All Your Lives You Will Lose The Game");
             tips.AppendLine("8) You Can Pause The Game And Press \"S\" To Save The Game");
             tips.AppendLine("9) After You Save The Game You Can Press \"L\" To Load The Last Save");
-            tips.AppendLine("10) When You Pause The Game You Can Press \"Q\" To Exit The Game");
+            tips.AppendLine("10) You Can Change The Sound Options From The Pause Menue");
+            tips.AppendLine("11) You Can View The High Scores From The Pause Menue");
+            tips.AppendLine("12) When You Pause The Game You Can Press \"Q\" To Exit The Game");
 
             Vector2 textSize = mainGame.LargeStateFont.MeasureString(tips);
             Vector2 loc = Extensions.AllignThing(textSize, TextLocation.Center, mainGame.Window.ClientBounds);

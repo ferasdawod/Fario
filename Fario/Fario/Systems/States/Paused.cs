@@ -14,28 +14,28 @@ using Application = System.Windows.Forms.Application;
 
 namespace IMPORT_PLATFORM
 {
-    public  class Paused
+    public class Paused
     {
         private enum CurrentScreen { States = 0, Options = 1, HighScores = 2 }
 
         #region Declerations
 
         private Player WalkingPlayer0;
-        private  Player WalkingPlayer1;
+        private Player WalkingPlayer1;
 
-        private  ContentManager Content;
+        private ContentManager Content;
 
-        private  SpriteFont gameFont;
+        private SpriteFont gameFont;
 
-        private  FarioMain mainGame;
+        private FarioMain mainGame;
 
-        private  NumbersHelper numHelper;
+        private NumbersHelper numHelper;
 
-        private  float distance;
-        private  Vector2 stringLocation;
+        private float distance;
+        private Vector2 stringLocation;
 
-        private  Texture2D title;
-        private  Vector2 titleLocation;
+        private Texture2D title;
+        private Vector2 titleLocation;
 
         private StringBuilder states;
 
@@ -45,7 +45,7 @@ namespace IMPORT_PLATFORM
 
         #region Initialization
 
-        public  Paused(FarioMain parentGame)
+        public Paused(FarioMain parentGame)
         {
             mainGame = parentGame;
             Content = mainGame.Content;
@@ -80,7 +80,7 @@ namespace IMPORT_PLATFORM
 
         #region Update And Draw
 
-        public  void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             CheckInput();
 
@@ -94,7 +94,7 @@ namespace IMPORT_PLATFORM
                 mainGame.LoadLastSave();
 
             if (Input.KeyPressed(Keys.Q))
-                mainGame.Exit();
+                mainGame.QuitGame();
 
             if (Input.KeyPressed(Keys.M))
             {
@@ -130,11 +130,14 @@ namespace IMPORT_PLATFORM
             WalkingPlayer1.Update(gameTime);
         }
 
-        public  void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             DrawPermaStuff(spriteBatch);
             string line = "Current Screen : " + activeScreen.ToString();
             spriteBatch.DrawString(mainGame.StateFont, line, Vector2.Zero, Color.White);
+            line = "Press Left And Right To Switch Screens";
+            Vector2 loc = Extensions.AllignThing(mainGame.StateFont.MeasureString(line), TextLocation.BotMid, mainGame.Window.ClientBounds);
+            spriteBatch.DrawString(mainGame.StateFont, line, loc, Color.White);
             DrawPlayers(spriteBatch);
             switch (activeScreen)
             {
@@ -182,7 +185,7 @@ namespace IMPORT_PLATFORM
             }
         }
 
-        private  void DrawPermaStuff(SpriteBatch spriteBatch)
+        private void DrawPermaStuff(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(title, titleLocation, Color.White);
         }
@@ -216,13 +219,13 @@ namespace IMPORT_PLATFORM
             spriteBatch.DrawString(mainGame.StateFont, states, loc, Color.White);
         }
 
-        private  void DrawPlayers(SpriteBatch spriteBatch)
+        private void DrawPlayers(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(WalkingPlayer0.Animations["Walk"].Texture, WalkingPlayer0.WorldLocation, WalkingPlayer0.Animations["Walk"].FrameRectangle, Color.White);
             spriteBatch.Draw(WalkingPlayer1.Animations["Walk"].Texture, WalkingPlayer1.WorldLocation, WalkingPlayer1.Animations["Walk"].FrameRectangle, Color.White);
         }
 
-        private  void DrawStates(SpriteBatch spritebatch)
+        private void DrawStates(SpriteBatch spritebatch)
         {
             states.Clear();
             states.AppendLine("--- The Game Is Paused ---");

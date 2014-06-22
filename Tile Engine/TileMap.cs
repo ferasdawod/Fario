@@ -47,19 +47,9 @@ namespace Tile_Engine
             get { return tileSheet.Width / TileWidth; }
         }
 
-        public static MapSquare[,] GetMapSquares
-        {
-            get { return mapCells; }
-        }
-
         public static void ResetMapSquares()
         {
             mapCells = new MapSquare[MapWidth, MapHeight];
-        }
-
-        public static int TilesPerCol
-        {
-            get { return tileSheet.Height / TileHeight; }
         }
 
         public static int SkyTileIndex

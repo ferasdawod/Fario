@@ -43,6 +43,7 @@ namespace IMPORT_PLATFORM
 
         Dictionary<SFXType, string> Effects;
         ISound fallSound;
+        ISound hurtSound;
         ISound effectSound;
 
         ISoundEngine soundEngine;
@@ -110,17 +111,39 @@ namespace IMPORT_PLATFORM
                     {
                         if (effectType == SFXType.Fall)
                         {
-                            if (fallSound == null)
+                            if (!mainGame.GamePlayer.Dead)
                             {
-                                fallSound = soundEngine.Play2D(Effects[effectType]);
-                                fallSound.Volume = effectsVolume;
-                            }
-                            else
-                            {
-                                if (fallSound.Finished)
+                                if (fallSound == null)
                                 {
                                     fallSound = soundEngine.Play2D(Effects[effectType]);
                                     fallSound.Volume = effectsVolume;
+                                }
+                                else
+                                {
+                                    if (fallSound.Finished)
+                                    {
+                                        fallSound = soundEngine.Play2D(Effects[effectType]);
+                                        fallSound.Volume = effectsVolume;
+                                    }
+                                }
+                            }
+                        }
+                        else if (effectType == SFXType.Hurt)
+                        {
+                            if (!mainGame.GamePlayer.Dead)
+                            {
+                                if (hurtSound == null)
+                                {
+                                    hurtSound = soundEngine.Play2D(Effects[effectType]);
+                                    hurtSound.Volume = effectsVolume;
+                                }
+                                else
+                                {
+                                    if (hurtSound.Finished)
+                                    {
+                                        hurtSound = soundEngine.Play2D(Effects[effectType]);
+                                        hurtSound.Volume = effectsVolume;
+                                    }
                                 }
                             }
                         }

@@ -87,7 +87,7 @@ namespace IMPORT_PLATFORM
 
         #region Declerationgs
 
-        //Graphics And fonts declerations
+        //Graphics And fonts declarations
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont stateFont;
@@ -99,10 +99,10 @@ namespace IMPORT_PLATFORM
         SpriteFont debugFont;
         SpriteFont particalFont;
 
-        //the randome number generator used across the game
+        //the random number generator used across the game
         private Random rnd;
 
-        //player declerations
+        //player declarations
         private Player player;
         private int playerNumber;
         private string playerName;
@@ -115,7 +115,7 @@ namespace IMPORT_PLATFORM
         //TODO remove the numhelper
         NumbersHelper helper;
 
-        //game state manegment stuff
+        //game state management stuff
         FarioMain instance;
         GameState activeState = GameState.NewGame;
 
@@ -189,11 +189,13 @@ namespace IMPORT_PLATFORM
         /// New Game Map Name
         /// </summary>
         private const string newGameMap = "1";
-        
+
         /// <summary>
         /// Contains Needed Defenitions For Loading And Starting A Game
         /// </summary>
         public System.Collections.Generic.List<HighScoreData> HighScoreData { get; private set; }
+
+        public Texture2D HudSheet { get; private set; }
 
         #endregion
 
@@ -311,7 +313,7 @@ namespace IMPORT_PLATFORM
         protected override void Initialize()
         {
             graphics.GraphicsProfile = GraphicsProfile.HiDef;
-            
+
 
             Window.Title = "Fario";
             Window.AllowUserResizing = false;
@@ -319,7 +321,7 @@ namespace IMPORT_PLATFORM
             helper = new NumbersHelper();
             rnd = new Random();
             instance = this;
-            
+
             graphics.PreferredBackBufferWidth = configData.ResWidth;
             graphics.PreferredBackBufferHeight = configData.ResHeight;
             graphics.IsFullScreen = configData.isFullScreen;
@@ -397,6 +399,8 @@ namespace IMPORT_PLATFORM
             this.GameFinishedLarge = Content.Load<Texture2D>(@"Textures/FinishedLogoLarge");
             this.GameFinishedSmall = Content.Load<Texture2D>(@"Textures/FinishedLogoSmall");
 
+            this.HudSheet = Content.Load<Texture2D>(@"Textures/HUD");
+
 
             player = new Player(instance, startingData.PlayerNumber, helper);
             player.WorldLocation = Vector2.Zero;
@@ -471,7 +475,7 @@ namespace IMPORT_PLATFORM
             }
             cloudManager.Update(gameTime);
 
-            MusicManager.Instance.Update();            
+            MusicManager.Instance.Update();
             Input.Update();
 
             base.Update(gameTime);
@@ -491,7 +495,7 @@ namespace IMPORT_PLATFORM
 #if DEBUG
             DebugSystem.Instance.TimeRuler.BeginMark("Draw", Color.Red);
 #endif
-            
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
 
@@ -577,7 +581,7 @@ namespace IMPORT_PLATFORM
             inGame.LevelMANAGER.ReloadLevel();
             inGame.InGameState = InGameState.Playing;
         }
-        
+
         /// <summary>
         /// Loads The Last Saved Game If It Exists
         /// </summary>
@@ -683,6 +687,13 @@ namespace IMPORT_PLATFORM
                     }
                 }
             }
+        }
+
+        public void QuitGame()
+        {
+            MusicManager.Instance.StopLoop();
+            Content.Unload();
+            Exit();
         }
 
         #endregion

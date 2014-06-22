@@ -105,11 +105,12 @@ namespace IMPORT_PLATFORM
             moveAmount.X = speed.X * elapsed;
             moveAmount.Y = speed.Y * elapsed;
 
-            if (isPlayer)
+            if (isPlayer && hasCollisions)
             {
                 moveAmount = horizontalCollisionTest(moveAmount);
                 moveAmount = verticalCollisionTest(moveAmount);
             }
+
             if (moveAmount == Vector2.Zero)
             {
                 worldLocation = prevLocation;

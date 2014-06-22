@@ -118,7 +118,7 @@ namespace IMPORT_PLATFORM
         {
             PlayingInput();
             player.Update(gameTime);
-            levelManager.Update(gameTime);
+            levelManager.Update(gameTime, false);
             if (player.WorldLocation.Y > Camera.WorldRectangle.Height + 300)
             {
                 MusicManager.Instance.PlayEffect(SFXType.Fall);
@@ -148,7 +148,7 @@ namespace IMPORT_PLATFORM
 
         private void UpdateDied(GameTime gameTime)
         {
-            levelManager.Update(gameTime);
+            levelManager.Update(gameTime, true);
             if (Input.KeyPressed(Keys.Enter))
             {
                 mainGame.RestartLevel();
@@ -157,7 +157,7 @@ namespace IMPORT_PLATFORM
 
         private void UpdateWon(GameTime gameTime)
         {
-            levelManager.Update(gameTime);
+            levelManager.Update(gameTime, true);
             if (Input.KeyPressed(Keys.Enter))
             {
                 string name = DestinationMapName(player.WorldCenter);
@@ -183,6 +183,7 @@ namespace IMPORT_PLATFORM
                 {
                     MusicManager.Instance.PlayEffect(SFXType.WonLevel);
                     mainGame.SetState(GameState.FinishedGame);
+                    mainGame.SaveHighScore();
                 }
             }
             if (Input.KeyPressed(Keys.Escape))
@@ -282,21 +283,32 @@ namespace IMPORT_PLATFORM
 
         private void DrawStates(SpriteBatch spriteBatch)
         {
-            states.Clear();
-            states.AppendLine("Score : " + player.Score);
-            states.AppendLine("Lives : " + player.LivesRemaining);
-            states.AppendLine("Deaths : " + player.DeathsRemaining);
-            states.AppendLine("Game Time " + mainGame.TotalTime.Minutes + " : " + mainGame.TotalTime.Seconds);
+            Rectangle source = numHelper.GetHudSourceRect(NumbersHelper.HudItem.FullHeart);
+            Vector2 loc = Vector2.Zero;
+            for (int i = 0; i < player.LivesRemaining; i++)
+            {
+                loc = new Vector2(i * source.Width + 10, 10);
+                spriteBatch.Draw(mainGame.HudSheet, loc, source, Color.White);
+            }
+            source = numHelper.GetHudSourceRect(NumbersHelper.HudItem.EmptyHeart);
+            for (int i = player.LivesRemaining; i < 3; i++)
+            {
+                loc = new Vector2(i * source.Width + 10, 10);
+                spriteBatch.Draw(mainGame.HudSheet, loc, source, Color.White);
+            }
+            float height = loc.Y;
+            source = numHelper.GetHudSourceRect((NumbersHelper.HudItem)mainGame.PlayerNumber);
+            loc = new Vector2(10, height + source.Height + 10);
+            spriteBatch.Draw(mainGame.HudSheet, loc, source, Color.White);
+            string text = "x" + player.DeathsRemaining;
+            Vector2 size = mainGame.StateFont.MeasureString(text);
+            spriteBatch.DrawString(mainGame.StateFont, text, new Vector2(loc.X + source.Width, loc.Y + source.Height - size.Y), Color.White);
 
-#if DEBUG
-            states.AppendLine("OnGround : " + player.OnGround);
-            states.AppendLine("Loc X = " + player.WorldLocation.X + " ");
-            states.AppendLine("Loc Y = " + player.WorldLocation.Y);
-            states.AppendLine("Speed X = " + player.Speed.X + " ");
-            states.AppendLine("Speed Y = " + player.Speed.Y);
-#endif
+            text = "Score : " + player.Score;
+            spriteBatch.DrawString(mainGame.StateFont, text, Extensions.AllignThing(mainGame.StateFont.MeasureString(text), TextLocation.TopRight, mainGame.Window.ClientBounds), Color.White);
 
-            spriteBatch.DrawString(mainGame.StateFont, states.ToString(), Vector2.Zero, Color.White);
+            text = "Game Time: " + mainGame.TotalTime.Minutes + ":" + mainGame.TotalTime.Seconds;
+            spriteBatch.DrawString(mainGame.StateFont, text, Extensions.AllignThing(mainGame.StateFont.MeasureString(text), TextLocation.BotLeft, mainGame.Window.ClientBounds), Color.White);
         }
 
         #endregion
