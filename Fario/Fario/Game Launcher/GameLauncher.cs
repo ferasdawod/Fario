@@ -211,7 +211,7 @@ namespace IMPORT_PLATFORM
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            chkPlayer2.Checked = true;            
+            chkPlayer2.Checked = true;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -221,17 +221,17 @@ namespace IMPORT_PLATFORM
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            chkPlayer3.Checked = true;            
+            chkPlayer3.Checked = true;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            chkPlayer4.Checked = true;            
+            chkPlayer4.Checked = true;
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            chkPlayer5.Checked = true;            
+            chkPlayer5.Checked = true;
         }
 
         private void chkPlayer1_CheckedChanged(object sender, EventArgs e)
